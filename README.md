@@ -337,10 +337,6 @@ Speech-Stress-Detection/
 ├── README.md
 │
 ├── Stress_Detection_from_Speech_Using_Transformer.py
-│   └──  Training code
-│
-└── stress_detection_from_speech_using_transformer.ipynb
-    └── Training notebook
 ```
 
 ---
