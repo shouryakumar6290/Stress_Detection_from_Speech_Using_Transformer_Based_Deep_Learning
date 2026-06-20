@@ -1,65 +1,69 @@
-# 🎙️ Transformer-Based Speech Stress Detection Using Wav2Vec2
+# 🎙️ Stress Detection from Speech Using Transformer-Based Deep Learning
 
 <div align="center">
 
 # 🧠 AI-Powered Speech Stress Detection
 
-### Detecting Stress from Human Speech using Transformer-Based Deep Learning
+### Detecting Human Stress Levels from Speech Using Transformer-Based Deep Learning
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-DeepLearning-red)
 ![Transformers](https://img.shields.io/badge/HuggingFace-Transformers-yellow)
 ![Wav2Vec2](https://img.shields.io/badge/Wav2Vec2-SpeechAI-green)
-![Accuracy](https://img.shields.io/badge/Accuracy-92.41%25-brightgreen)
+![Accuracy](https://img.shields.io/badge/Accuracy-78.57%25-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-blue)
+
+---
+
+### 🎙️ Speech AI • Deep Learning • Mental Health Technology
+
+**Built with ❤️ using Wav2Vec2, PyTorch, and Transformers**
 
 </div>
 
 ---
 
-## 📌 Overview
+# 📌 Introduction
 
-Mental stress is one of the major factors affecting human health, productivity, and overall well-being. Traditional stress assessment methods often rely on questionnaires, interviews, and clinical observations, which can be subjective and time-consuming.
+Stress is one of the major factors affecting human health and well-being. Prolonged stress can lead to various physical and psychological disorders.
 
-This project presents a **Transformer-Based Speech Stress Detection System** using **Wav2Vec2**, a state-of-the-art speech representation model developed by Facebook AI Research.
+Human speech contains acoustic patterns that change under stressful conditions. This project leverages **Transformer-Based Deep Learning** to automatically detect stress from speech recordings.
 
-The system analyzes speech recordings and automatically classifies them into:
+The proposed system utilizes **Wav2Vec2**, a state-of-the-art speech representation model developed by Facebook AI Research, to classify speech samples into:
 
 * 😟 **STRESSED**
 * 😌 **UNSTRESSED**
-
-By leveraging transformer architectures and speech signal processing, the model achieves highly accurate stress detection directly from raw audio recordings.
 
 ---
 
 # 🎯 Objectives
 
-* Develop an automated speech-based stress detection system.
-* Preprocess and analyze speech recordings.
-* Utilize Wav2Vec2 Transformer architecture for feature extraction.
-* Classify speech samples into STRESSED and UNSTRESSED categories.
-* Evaluate performance using standard machine learning metrics.
-* Enable future deployment in healthcare and wellness applications.
+* Develop an intelligent speech-based stress detection system.
+* Perform preprocessing and analysis of speech recordings.
+* Utilize Transformer-based Wav2Vec2 architecture.
+* Classify speech into stressed and unstressed categories.
+* Evaluate model performance using standard metrics.
+* Enable future real-time healthcare applications.
 
 ---
 
 # ✨ Features
 
-✅ Transformer-based speech classification
+✅ Transformer-Based Speech Classification
 
-✅ Wav2Vec2 feature extraction
+✅ Transfer Learning using Wav2Vec2
 
-✅ Audio preprocessing pipeline
+✅ Audio Preprocessing Pipeline
 
-✅ Data augmentation techniques
+✅ Data Augmentation Techniques
 
-✅ High classification accuracy
+✅ High Recall Performance
 
-✅ Frontend and backend integration
+✅ Automatic Stress Prediction
 
-✅ Docker deployment support
+✅ Performance Visualization
 
-✅ Real-time prediction ready
+✅ Real-Time Deployment Ready
 
 ---
 
@@ -93,11 +97,13 @@ Stress Prediction
 # 🔄 Workflow
 
 ```text
-Audio Collection
+Speech Dataset
        ↓
-Metadata Integration
+Audio Loading
        ↓
-Audio Preprocessing
+Preprocessing
+       ↓
+Train-Test Split
        ↓
 Data Augmentation
        ↓
@@ -108,8 +114,6 @@ Model Training
 Stress Classification
        ↓
 Performance Evaluation
-       ↓
-Frontend Deployment
 ```
 
 ---
@@ -129,39 +133,18 @@ Frontend Deployment
 | Matplotlib                | Visualization             |
 | Seaborn                   | Data Visualization        |
 | Google Colab              | Model Training            |
-| Docker                    | Containerization          |
 
 ---
 
-# 📊 Dataset Information
+# 📊 Dataset Description
 
-The dataset consists of speech recordings and corresponding metadata.
+The dataset consists of speech recordings labeled into two classes:
 
-## Metadata Fields
+### 😟 STRESSED
 
-```text
-FILE_NAME
-LANGUAGE
-AGE
-LOCALITY
-CONDITION
-STRESS_LEVEL
-GENDER
-MARITAL_STATUS
-OCCUPATION
-SLEEP_HOURS
-PHYSICAL_ACTIVITY
-```
+### 😌 UNSTRESSED
 
-## Dataset Statistics
-
-| Category                | Count |
-| ----------------------- | ----- |
-| Original Audio Samples  | 280   |
-| Augmented Audio Samples | 1120  |
-| Classes                 | 2     |
-
-### Labels
+### Label Encoding
 
 ```python
 STRESSED = 1
@@ -172,219 +155,245 @@ UNSTRESSED = 0
 
 # 🎵 Audio Preprocessing
 
-All speech recordings undergo the following preprocessing steps:
+The following preprocessing steps were performed:
 
-* Audio loading using Librosa
-* Resampling to 16 kHz
-* Signal normalization
-* Format standardization
-* Preparation for Wav2Vec2 processing
+* 🎧 Loading audio files using Librosa
+* 🔄 Resampling signals to 16 kHz
+* 🔢 Mapping labels into numerical form
+* 📁 Creating audio file paths
+* 🗑️ Removing invalid or inaccessible files
+
+### Sampling Frequency
+
+```text
+16000 Hz
+```
+
+---
+
+# 🔀 Train-Test Split
+
+The dataset was divided into:
+
+```text
+Training Set : 80%
+Testing Set  : 20%
+```
+
+Stratified sampling was used to maintain balanced class distributions.
 
 ---
 
 # 🔥 Data Augmentation
 
-To improve model robustness and reduce overfitting, multiple augmentation techniques were applied.
+To improve model generalization and increase data diversity, augmentation techniques were applied only to the training dataset.
 
-## Noise Injection
+## 🎙️ Original Audio
 
-Random Gaussian noise added to audio samples.
+The original speech signal was retained.
 
-## Time Shifting
+## 🌊 Gaussian Noise Addition
 
-Audio shifted along the time axis.
+Small random noise was added to improve robustness.
 
-## Pitch Shifting
+## ⏩ Time Shifting
 
-Pitch modified while preserving speech content.
+Audio signals were shifted slightly along the time axis.
 
-### Dataset Expansion
+## 🎼 Pitch Shifting
 
-```text
-Original Samples   : 280
-Augmented Samples  : 1120
-```
+Pitch was altered without changing speech duration.
 
-This increased data diversity significantly and improved model generalization.
+### ⚠️ Important
+
+Testing data remained completely unchanged to avoid data leakage and ensure unbiased evaluation.
 
 ---
 
-# 🧠 Model Architecture
+# 🧠 Feature Extraction
 
-## Base Model
+Feature extraction was performed using the pre-trained Wav2Vec2 processor.
+
+### Base Model
+
+```python
+facebook/wav2vec2-base
+```
+
+### Sampling Rate
+
+```text
+16 kHz
+```
+
+---
+
+# 🏗️ Deep Learning Architecture
+
+The project employed:
 
 ```python
 Wav2Vec2ForSequenceClassification
 ```
 
-### Hyperparameters
-
-| Parameter        | Value            |
-| ---------------- | ---------------- |
-| Number of Labels | 2                |
-| Learning Rate    | 3e-6             |
-| Epochs           | 12               |
-| Batch Size       | 8                |
-| Weight Decay     | 0.01             |
-| Optimizer        | AdamW            |
-| Loss Function    | CrossEntropyLoss |
+Transfer learning was utilized by freezing the feature encoder to reduce computational complexity and improve learning efficiency.
 
 ---
 
-# ⚙️ Training Strategy
+# ⚙️ Training Parameters
 
-```text
-Train-Test Split : 80 : 20
-Feature Encoder  : Frozen
-Optimizer        : AdamW
-Loss Function    : Cross Entropy
-Epochs           : 12
-```
+| Parameter            | Value      |
+| -------------------- | ---------- |
+| Learning Rate        | 1 × 10⁻⁶   |
+| Batch Size           | 8          |
+| Epochs               | 15         |
+| Weight Decay         | 0.01       |
+| Optimizer            | AdamW      |
+| Evaluation Strategy  | Epoch-wise |
+| Best Model Selection | Enabled    |
 
 ---
 
-# 📈 Results
+# 📈 Performance Metrics
+
+The model was evaluated using:
+
+* Accuracy
+* Precision
+* Recall
+* F1 Score
+* Validation Loss
+* Confusion Matrix
+
+---
+
+# 📊 Results
 
 ## Final Performance
 
 | Metric          | Score  |
 | --------------- | ------ |
-| Accuracy        | 92.41% |
-| Precision       | 91.38% |
-| Recall          | 93.81% |
-| F1 Score        | 92.58% |
-| Training Loss   | 0.3431 |
-| Validation Loss | 0.2339 |
+| Validation Loss | 0.4901 |
+| Accuracy        | 78.57% |
+| Precision       | 73.53% |
+| Recall          | 89.29% |
+| F1 Score        | 80.65% |
 
 ---
 
-# 📉 Performance Comparison
+# 📉 Model Interpretation
 
-## Before Data Augmentation
+### 📈 Accuracy
 
-| Metric   | Score  |
-| -------- | ------ |
-| Accuracy | 85.71% |
-| F1 Score | 85.96% |
+```text
+78.57%
+```
 
-## After Data Augmentation
+Indicates effective classification of stress levels.
 
-| Metric   | Score  |
-| -------- | ------ |
-| Accuracy | 92.41% |
-| F1 Score | 92.58% |
+### 🎯 Precision
 
-### Improvement
+```text
+73.53%
+```
 
-📈 Accuracy Improved by **6.70%**
+Shows that most predicted stressed samples were correctly identified.
 
-📈 F1 Score Improved by **6.62%**
+### 🔍 Recall
+
+```text
+89.29%
+```
+
+Demonstrates strong ability to detect stressed speech samples.
+
+### ⚖️ F1 Score
+
+```text
+80.65%
+```
+
+Provides a balanced measure between precision and recall.
 
 ---
 
-# 📊 Evaluation Metrics
+# 📊 Visualizations
 
-### Accuracy
+During experimentation, several visualizations were generated:
 
-Measures overall prediction correctness.
+## 📉 Training Loss Curve
 
-```text
-Accuracy = 92.41%
-```
+Illustrates convergence behavior during training.
 
-### Precision
+## 🔲 Confusion Matrix
 
-Measures how many predicted stressed samples were actually stressed.
+Visualizes correct and incorrect predictions.
 
-```text
-Precision = 91.38%
-```
+## 📊 Performance Comparison Graph
 
-### Recall
+Compares:
 
-Measures how many actual stressed samples were correctly identified.
+* Accuracy
+* Precision
+* Recall
+* F1 Score
 
-```text
-Recall = 93.81%
-```
+---
 
-### F1 Score
+# ✅ Advantages
 
-Harmonic mean of Precision and Recall.
+* Transformer-Based Architecture
+* Transfer Learning using Wav2Vec2
+* Minimal Feature Engineering
+* Robustness Through Data Augmentation
+* Automatic Speech-Based Stress Detection
+* Efficient Representation Learning
 
-```text
-F1 Score = 92.58%
-```
+---
+
+# ⚠️ Limitations
+
+* Performance depends on dataset quality and size.
+* Computationally intensive compared to traditional methods.
+* Noisy environments may affect accuracy.
+* Limited dataset size restricts generalization.
+
+---
+
+# 🔮 Future Scope
+
+Future enhancements may include:
+
+* 📈 Increasing dataset size
+* 🔧 Fine-tuning additional layers
+* 🎙️ Advanced augmentation techniques
+* 🧠 Larger Transformer architectures
+* 🌐 Real-time web application deployment
+* 📱 Mobile application development
+* 🌎 Multilingual speech support
 
 ---
 
 # 📂 Project Structure
 
 ```text
-Speech-Stress-Detection/
+Stress-Detection-From-Speech/
 │
-├── backend/
-│   └── Backend APIs and inference logic
-│
-├── frontend/
-│   └── User Interface
+├── dataset/
 │
 ├── final_model/
-│   └── Fine-tuned Wav2Vec2 model files
+│   └── Fine-tuned Wav2Vec2 model
 │
-├── Dockerfile
+├── plots/
+│   ├── Training Loss Curve
+│   ├── Confusion Matrix
+│   └── Performance Graphs
+│
+├── notebooks/
 │
 ├── README.md
 │
-├── Stress_Detection_from_Speech_Using_Transformer.py
-```
-
----
-
-# 🚀 Installation
-
-## Clone Repository
-
-```bash
-git clone https://github.com/your-username/Speech-Stress-Detection.git
-cd Speech-Stress-Detection
-```
-
-## Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-## Run Backend
-
-```bash
-cd backend
-python app.py
-```
-
-## Run Frontend
-
-```bash
-cd frontend
-npm install
-npm start
-```
-
----
-
-# 🐳 Docker Deployment
-
-Build Docker Image:
-
-```bash
-docker build -t speech-stress-detector .
-```
-
-Run Container:
-
-```bash
-docker run -p 8000:8000 speech-stress-detector
+└── Stress_Detection_from_Speech_Using_Transformer.py
 ```
 
 ---
@@ -397,7 +406,7 @@ docker run -p 8000:8000 speech-stress-detector
 
 🎓 Educational Stress Analysis
 
-📱 Mobile Health Applications
+📱 Smart Healthcare Applications
 
 🎙️ Voice-Based AI Systems
 
@@ -405,29 +414,41 @@ docker run -p 8000:8000 speech-stress-detector
 
 ---
 
-# 🔮 Future Scope
+# 🏁 Conclusion
 
-* Larger real-world datasets
-* Multilingual stress detection
-* Mobile application deployment
-* Cloud-based prediction APIs
-* Real-time stress monitoring
-* Stress severity scoring
-* Advanced Transformer architectures
+This project successfully implemented a **Speech-Based Stress Detection System** using the **Transformer-based Wav2Vec2 architecture**.
+
+Through transfer learning and audio augmentation techniques, the model effectively learned stress-related acoustic characteristics from speech recordings.
+
+### 📈 Final Achievements
+
+| Metric    | Value  |
+| --------- | ------ |
+| Accuracy  | 78.57% |
+| Precision | 73.53% |
+| Recall    | 89.29% |
+| F1 Score  | 80.65% |
+
+The obtained results demonstrate that Transformer-based models offer a promising approach for automatic stress detection and can be extended toward real-time healthcare and mental well-being applications.
 
 ---
 
 # 📚 References
 
-1. Baevski, A., Zhou, Y., Mohamed, A., & Auli, M. (2020). *wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations.*
+1. **Baevski, A., Zhou, H., Mohamed, A., & Auli, M. (2020)**
+   *wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations.*
 
-2. Hugging Face Transformers Documentation
+2. **Paszke, A. et al. (2019)**
+   *PyTorch: An Imperative Style, High-Performance Deep Learning Library.*
 
-3. PyTorch Documentation
+3. **Wolf, T. et al. (2020)**
+   *Transformers: State-of-the-Art Natural Language Processing.*
 
-4. Librosa Documentation
+4. **McFee, B. et al. (2015)**
+   *Librosa: Audio and Music Signal Analysis in Python.*
 
-5. Scikit-Learn Documentation
+5. **Pedregosa, F. et al. (2011)**
+   *Scikit-learn: Machine Learning in Python.*
 
 ---
 
@@ -435,16 +456,16 @@ docker run -p 8000:8000 speech-stress-detector
 
 ## Shourya Kumar
 
-**Transformer-Based Speech Stress Detection Using Wav2Vec2**
+### 🎙️ Stress Detection from Speech Using Transformer-Based Deep Learning
 
-If you found this project useful, consider giving it a ⭐ on GitHub.
+⭐ If you found this project useful, consider giving it a **Star** on GitHub.
 
 ---
 
 <div align="center">
 
-### 🎙️ Speech AI • Deep Learning • Mental Health Technology
+## 🌟 Thank You For Visiting 🌟
 
-**Built with ❤️ using Wav2Vec2, PyTorch, and Transformers**
+### Speech AI • Deep Learning • Healthcare Technology
 
 </div>
