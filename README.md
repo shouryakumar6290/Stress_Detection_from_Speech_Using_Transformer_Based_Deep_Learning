@@ -13,8 +13,6 @@
 ![Accuracy](https://img.shields.io/badge/Accuracy-78.57%25-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
----
-
 ### 🎙️ Speech AI • Deep Learning • Mental Health Technology
 
 **Built with ❤️ using Wav2Vec2, PyTorch, and Transformers**
@@ -23,13 +21,15 @@
 
 ---
 
-# 📌 Introduction
+# 📌 Overview
 
-Stress is one of the major factors affecting human health and well-being. Prolonged stress can lead to various physical and psychological disorders.
+Stress is a significant factor affecting human health and well-being. Prolonged stress may lead to various physical and psychological disorders.
 
-Human speech contains acoustic patterns that change under stressful conditions. This project leverages **Transformer-Based Deep Learning** to automatically detect stress from speech recordings.
+Speech signals contain acoustic characteristics that change under stressful conditions. Therefore, automatic stress detection from speech has gained considerable attention in recent years.
 
-The proposed system utilizes **Wav2Vec2**, a state-of-the-art speech representation model developed by Facebook AI Research, to classify speech samples into:
+This project presents a **Transformer-Based Speech Stress Detection System** using **Wav2Vec2**, a state-of-the-art speech representation model developed by Facebook AI Research.
+
+The system analyzes speech recordings and automatically classifies them into:
 
 * 😟 **STRESSED**
 * 😌 **UNSTRESSED**
@@ -38,12 +38,12 @@ The proposed system utilizes **Wav2Vec2**, a state-of-the-art speech representat
 
 # 🎯 Objectives
 
-* Develop an intelligent speech-based stress detection system.
-* Perform preprocessing and analysis of speech recordings.
-* Utilize Transformer-based Wav2Vec2 architecture.
-* Classify speech into stressed and unstressed categories.
-* Evaluate model performance using standard metrics.
-* Enable future real-time healthcare applications.
+* Develop an automated speech-based stress detection system.
+* Preprocess and analyze speech recordings.
+* Utilize Wav2Vec2 Transformer architecture for feature extraction.
+* Classify speech samples into STRESSED and UNSTRESSED categories.
+* Evaluate performance using standard machine learning metrics.
+* Enable future deployment in healthcare and wellness applications.
 
 ---
 
@@ -51,19 +51,19 @@ The proposed system utilizes **Wav2Vec2**, a state-of-the-art speech representat
 
 ✅ Transformer-Based Speech Classification
 
-✅ Transfer Learning using Wav2Vec2
+✅ Transfer Learning with Wav2Vec2
 
 ✅ Audio Preprocessing Pipeline
 
 ✅ Data Augmentation Techniques
 
-✅ High Recall Performance
-
 ✅ Automatic Stress Prediction
 
-✅ Performance Visualization
+✅ Performance Evaluation
 
-✅ Real-Time Deployment Ready
+✅ Visualization of Training Performance
+
+✅ Real-Time Prediction Ready
 
 ---
 
@@ -133,78 +133,61 @@ Performance Evaluation
 | Matplotlib                | Visualization             |
 | Seaborn                   | Data Visualization        |
 | Google Colab              | Model Training            |
+| Docker                    | Containerization          |
 
 ---
 
-# 📊 Dataset Description
+# 📊 Dataset Information
 
-The dataset consists of speech recordings labeled into two classes:
+The dataset consists of speech recordings labeled into two categories:
 
-### 😟 STRESSED
-
-### 😌 UNSTRESSED
-
-### Label Encoding
+### Labels
 
 ```python
 STRESSED = 1
 UNSTRESSED = 0
 ```
 
----
-
-# 🎵 Audio Preprocessing
-
-The following preprocessing steps were performed:
-
-* 🎧 Loading audio files using Librosa
-* 🔄 Resampling signals to 16 kHz
-* 🔢 Mapping labels into numerical form
-* 📁 Creating audio file paths
-* 🗑️ Removing invalid or inaccessible files
-
-### Sampling Frequency
-
-```text
-16000 Hz
-```
-
----
-
-# 🔀 Train-Test Split
-
-The dataset was divided into:
+### Train-Test Split
 
 ```text
 Training Set : 80%
 Testing Set  : 20%
 ```
 
-Stratified sampling was used to maintain balanced class distributions.
+Stratified sampling was used to maintain equal class distribution.
+
+---
+
+# 🎵 Audio Preprocessing
+
+All speech recordings undergo the following preprocessing steps:
+
+* Audio loading using Librosa
+* Resampling to 16 kHz
+* Label mapping to numerical values
+* File path creation
+* Removal of invalid or inaccessible files
 
 ---
 
 # 🔥 Data Augmentation
 
-To improve model generalization and increase data diversity, augmentation techniques were applied only to the training dataset.
+To improve model generalization and increase the number of training samples, several augmentation techniques were applied only to the training dataset.
 
-## 🎙️ Original Audio
+## Gaussian Noise Addition
 
-The original speech signal was retained.
+Small random noise was added to the signal to increase robustness.
 
-## 🌊 Gaussian Noise Addition
+## Time Shifting
 
-Small random noise was added to improve robustness.
+The waveform was shifted slightly in time.
 
-## ⏩ Time Shifting
+## Pitch Shifting
 
-Audio signals were shifted slightly along the time axis.
+The pitch of the speech signal was altered without affecting duration.
 
-## 🎼 Pitch Shifting
-
-Pitch was altered without changing speech duration.
-
-### ⚠️ Important
+### Important
 
 Testing data remained completely unchanged to avoid data leakage and ensure unbiased evaluation.
 
@@ -220,7 +203,7 @@ Feature extraction was performed using the pre-trained Wav2Vec2 processor.
 facebook/wav2vec2-base
 ```
 
-### Sampling Rate
+### Sampling Frequency
 
 ```text
 16 kHz
@@ -236,7 +219,7 @@ The project employed:
 Wav2Vec2ForSequenceClassification
 ```
 
-Transfer learning was utilized by freezing the feature encoder to reduce computational complexity and improve learning efficiency.
+Transfer learning was utilized by freezing the feature encoder to reduce computational complexity.
 
 ---
 
@@ -281,96 +264,19 @@ The model was evaluated using:
 
 ---
 
-# 📉 Model Interpretation
+# 📉 Visualization
 
-### 📈 Accuracy
+### 📈 Training Loss Curve
 
-```text
-78.57%
-```
+Illustrates the convergence behavior of the model during training.
 
-Indicates effective classification of stress levels.
+### 🔲 Confusion Matrix
 
-### 🎯 Precision
+Visualizes correct and incorrect classifications.
 
-```text
-73.53%
-```
+### 📊 Performance Bar Graph
 
-Shows that most predicted stressed samples were correctly identified.
-
-### 🔍 Recall
-
-```text
-89.29%
-```
-
-Demonstrates strong ability to detect stressed speech samples.
-
-### ⚖️ F1 Score
-
-```text
-80.65%
-```
-
-Provides a balanced measure between precision and recall.
-
----
-
-# 📊 Visualizations
-
-During experimentation, several visualizations were generated:
-
-## 📉 Training Loss Curve
-
-Illustrates convergence behavior during training.
-
-## 🔲 Confusion Matrix
-
-Visualizes correct and incorrect predictions.
-
-## 📊 Performance Comparison Graph
-
-Compares:
-
-* Accuracy
-* Precision
-* Recall
-* F1 Score
-
----
-
-# ✅ Advantages
-
-* Transformer-Based Architecture
-* Transfer Learning using Wav2Vec2
-* Minimal Feature Engineering
-* Robustness Through Data Augmentation
-* Automatic Speech-Based Stress Detection
-* Efficient Representation Learning
-
----
-
-# ⚠️ Limitations
-
-* Performance depends on dataset quality and size.
-* Computationally intensive compared to traditional methods.
-* Noisy environments may affect accuracy.
-* Limited dataset size restricts generalization.
-
----
-
-# 🔮 Future Scope
-
-Future enhancements may include:
-
-* 📈 Increasing dataset size
-* 🔧 Fine-tuning additional layers
-* 🎙️ Advanced augmentation techniques
-* 🧠 Larger Transformer architectures
-* 🌐 Real-time web application deployment
-* 📱 Mobile application development
-* 🌎 Multilingual speech support
+Comparison among Accuracy, Precision, Recall, and F1 Score.
 
 ---
 
@@ -379,22 +285,64 @@ Future enhancements may include:
 ```text
 Stress-Detection-From-Speech/
 │
-├── dataset/
+├── 📁 backend/
+│   └── Backend APIs and inference logic
 │
-├── final_model/
-│   └── Fine-tuned Wav2Vec2 model
+├── 📁 final_model/
+│   └── Fine-tuned Wav2Vec2 model files
 │
-├── plots/
-│   ├── Training Loss Curve
-│   ├── Confusion Matrix
-│   └── Performance Graphs
+├── 📁 frontend/
+│   └── User Interface and frontend components
 │
-├── notebooks/
+├── 📄 Dockerfile
+│   └── Docker configuration for deployment
 │
-├── README.md
+├── 📄 README.md
+│   └── Project documentation
 │
-└── Stress_Detection_from_Speech_Using_Transformer.py
+├── 📄 local_server.js
+│   └── Local server implementation
+│
+├── 📄 package.json
+│   └── Node.js project configuration
+│
+├── 📄 package-lock.json
+│   └── Dependency lock file
+│
+└── 📄 stress_detection_from_speech_using_transformer.py
+    └── Transformer-based stress detection model
 ```
+
+---
+
+# ✅ Advantages
+
+* Transformer-Based Deep Learning Architecture
+* Transfer Learning with Wav2Vec2
+* Minimal Handcrafted Feature Engineering
+* Robustness through Data Augmentation
+* Automatic Stress Detection from Speech
+* Efficient Speech Representation Learning
+
+---
+
+# ⚠️ Limitations
+
+* Performance depends on dataset quality and size.
+* Computationally intensive compared to traditional machine learning methods.
+* Real-world noisy environments may affect accuracy.
+
+---
+
+# 🔮 Future Scope
+
+* Increasing dataset size.
+* Fine-tuning more layers of Wav2Vec2.
+* Applying additional augmentation techniques.
+* Using larger Transformer models.
+* Developing a web application for real-time stress detection.
+* Deploying the model on mobile devices.
+* Incorporating multilingual speech datasets.
 
 ---
 
@@ -406,7 +354,7 @@ Stress-Detection-From-Speech/
 
 🎓 Educational Stress Analysis
 
-📱 Smart Healthcare Applications
+📱 Mobile Health Applications
 
 🎙️ Voice-Based AI Systems
 
@@ -416,11 +364,11 @@ Stress-Detection-From-Speech/
 
 # 🏁 Conclusion
 
-This project successfully implemented a **Speech-Based Stress Detection System** using the **Transformer-based Wav2Vec2 architecture**.
+This project successfully implemented a speech-based stress detection system using the Transformer-based Wav2Vec2 architecture.
 
-Through transfer learning and audio augmentation techniques, the model effectively learned stress-related acoustic characteristics from speech recordings.
+Transfer learning and audio augmentation techniques enabled effective learning from speech signals.
 
-### 📈 Final Achievements
+### Final Achievements
 
 | Metric    | Value  |
 | --------- | ------ |
@@ -429,25 +377,25 @@ Through transfer learning and audio augmentation techniques, the model effective
 | Recall    | 89.29% |
 | F1 Score  | 80.65% |
 
-The obtained results demonstrate that Transformer-based models offer a promising approach for automatic stress detection and can be extended toward real-time healthcare and mental well-being applications.
+The obtained results demonstrate that Transformer-based models can serve as a promising approach for automatic stress detection and can be further extended for real-time healthcare and mental well-being applications.
 
 ---
 
 # 📚 References
 
-1. **Baevski, A., Zhou, H., Mohamed, A., & Auli, M. (2020)**
+1. Baevski, A., Zhou, H., Mohamed, A., and Auli, M. (2020).
    *wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations.*
 
-2. **Paszke, A. et al. (2019)**
+2. Paszke, A. et al. (2019).
    *PyTorch: An Imperative Style, High-Performance Deep Learning Library.*
 
-3. **Wolf, T. et al. (2020)**
+3. Wolf, T. et al. (2020).
    *Transformers: State-of-the-Art Natural Language Processing.*
 
-4. **McFee, B. et al. (2015)**
+4. McFee, B. et al. (2015).
    *Librosa: Audio and Music Signal Analysis in Python.*
 
-5. **Pedregosa, F. et al. (2011)**
+5. Pedregosa, F. et al. (2011).
    *Scikit-learn: Machine Learning in Python.*
 
 ---
@@ -456,9 +404,9 @@ The obtained results demonstrate that Transformer-based models offer a promising
 
 ## Shourya Kumar
 
-### 🎙️ Stress Detection from Speech Using Transformer-Based Deep Learning
+### Stress Detection from Speech Using Transformer-Based Deep Learning
 
-⭐ If you found this project useful, consider giving it a **Star** on GitHub.
+⭐ If you found this project useful, consider giving it a star on GitHub.
 
 ---
 
@@ -466,6 +414,6 @@ The obtained results demonstrate that Transformer-based models offer a promising
 
 ## 🌟 Thank You For Visiting 🌟
 
-### Speech AI • Deep Learning • Healthcare Technology
+### 🎙️ Speech AI • Deep Learning • Healthcare Technology
 
 </div>
