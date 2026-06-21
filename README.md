@@ -402,7 +402,7 @@ The obtained results demonstrate that Transformer-based models can serve as a pr
 
 # 👨‍💻 Author
 
-## Shourya Kumar
+## Built with ❤️ by Shourya Kumar
 
 ### Stress Detection from Speech Using Transformer-Based Deep Learning
 
